@@ -19,6 +19,12 @@ mongoose.connect(process.env.MONGODB_URI, {
 .then(() => console.log("✅ MongoDB connected"))
 .catch(err => console.error("❌ MongoDB connection error:", err));
 
+
+
+app.get('/', (req, res) => {
+  res.send("📚 Welcome to the Book API — use /api/books to view all books");
+});
+
 // Routes
 app.use('/api/books', bookRoutes);
 
