@@ -17,12 +17,12 @@ mongoose.connect(process.env.MONGODB_URI, {
   useUnifiedTopology: true
 })
 .then(() => console.log("MongoDB connected"))
-.catch(err => console.error("❌ MongoDB connection error:", err));
+.catch(err => console.error("MongoDB connection error:", err));
 
 
 
 app.get('/', (req, res) => {
-  res.send("📚 Welcome to the Book API — use /api/books to view all books");
+  res.send(" Welcome to the Book API — use /api/books to view all books");
 });
 
 // Routes
