@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 const Book = require('../models/book.model');
 
-// =========================
-// 1️⃣ Latest 6 books
+
+//  Latest 6 books
 // Must be before '/:id' route
 router.get('/latest', async (req, res) => {
   try {
@@ -16,8 +16,8 @@ router.get('/latest', async (req, res) => {
   }
 });
 
-// =========================
-// 2️⃣ All books (optional query params: ?sortBy=rating&order=desc&limit=6)
+
+// All books (optional query params: ?sortBy=rating&order=desc&limit=6)
 router.get('/', async (req, res) => {
   try {
     const { sortBy, order = 'desc', limit } = req.query;
@@ -41,8 +41,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-// =========================
-// 3️⃣ Single book by ID
+// 
+// Single book by ID
 router.get('/:id', async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
@@ -54,8 +54,8 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// =========================
-// 4️⃣ Create new book
+
+//  Create new book
 router.post('/', async (req, res) => {
   try {
     const book = new Book(req.body);
@@ -67,8 +67,8 @@ router.post('/', async (req, res) => {
   }
 });
 
-// =========================
-// 5️⃣ Update book
+
+// Update book
 router.put('/:id', async (req, res) => {
   try {
     const updated = await Book.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -80,8 +80,8 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// =========================
-// 6️⃣ Delete book
+
+// Delete book
 router.delete('/:id', async (req, res) => {
   try {
     const removed = await Book.findByIdAndDelete(req.params.id);
@@ -93,8 +93,8 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-// =========================
-// 7️⃣ Add comment to a book
+
+//  Add comment to a book
 router.post('/:id/comments', async (req, res) => {
   try {
     const { userName, userPhoto, text } = req.body;
