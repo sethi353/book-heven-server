@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 app.use('/api/books', bookRoutes);
 
 // Test route
-app.get('/test', (req, res) => res.send("🚀 Backend working"));
+app.get('/test', (req, res) => res.send(" Backend working"));
 
 // Catch-all 404
 app.use((req, res) => res.status(404).send("❌ Route not found"));
